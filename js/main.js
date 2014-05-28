@@ -17,16 +17,13 @@ $(function(){
 
     var bgImgCSS = ["url('", img.src, "')"].join('');
     var $imageSlice = $('<div class="img-slice"></div>');
-    $imageSlice.css('width', slideWidth);
-    $imageSlice.css('height', slideHeight);
-    $imageSlice.on('mouseenter',
-      (function(imgSrc){ // closure so we lock in img
-        return function(){
-          console.log('got mouse enter', imgSrc);
-          $parentContainer.css('background-image', imgSrc);
-        }
-      })(bgImgCSS)
-    );
+    $imageSlice.css('width', slideWidth)
+               .css('height', slideHeight)
+               .on('mouseenter',
+                    (function(imgSrc){ // closure so we lock in img
+                      return function(){ $parentContainer.css('background-image', imgSrc); }
+                    })(bgImgCSS)
+                  );
 
     $parentContainer.append($imageSlice);
   }
