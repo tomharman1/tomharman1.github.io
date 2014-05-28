@@ -15,7 +15,7 @@ $(function(){
     var img = new Image();
     img.src = [imageNamePrefix, ((i < 10) ? '0'+i : i), '.gif'].join('');
 
-    var bgImgCSS = ["url('../", img.src, "')"].join('');
+    var bgImgCSS = ["url('", img.src, "')"].join('');
     var $imageSlice = $('<div class="img-slice"></div>');
     $imageSlice.css('width', slideWidth);
     $imageSlice.css('height', slideHeight);
