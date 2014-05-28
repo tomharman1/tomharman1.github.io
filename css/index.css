@@ -1,0 +1,11 @@
+.container {
+  background-image: url('../img/frames/frame_000.gif');
+  background-size: cover;
+  width: 292px;
+  height: 520px;
+  margin: auto;
+}
+
+.img-slice {
+  display: inline-block;
+}
