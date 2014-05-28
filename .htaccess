@@ -1,1 +1,1 @@
-ExpiresByType image/gif
+ExpiresByType image/gif "access plus 4 hours"
