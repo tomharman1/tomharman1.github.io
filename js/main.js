@@ -16,14 +16,13 @@ $(function(){
     var img = new Image();
     img.src = getImageSrc(i);
 
-    var bgImgCSS = ["url('", img.src, "')"].join('');
     var $imageSlice = $('<div class="img-slice"></div>');
     $imageSlice.css('width', slideWidth)
                .css('height', slideHeight)
                .on('mouseenter',
                     (function(imgSrc){ // closure so we lock in img
                       return function(){ changeBackgroundImage(imgSrc) }
-                    })(bgImgCSS)
+                    })(makeBackgroundImgCSSProp(img.src))
                   );
 
     $parentContainer.append($imageSlice);
@@ -55,7 +54,11 @@ $(function(){
    */
   function changeBackgroundImage(index) {
     var imgSrc = getImageSrc(index);
-    $parentContainer.css('background-image', imgSrc);
+    $parentContainer.css('background-image', makeBackgroundImgCSSProp(imgSrc));
+  }
+
+  function makeBackgroundImgCSSProp(imgSrc) {
+    return ["url('", imgSrc, "')"].join('');
   }
 
 });
