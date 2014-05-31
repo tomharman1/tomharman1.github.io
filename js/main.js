@@ -28,4 +28,10 @@ $(function(){
     $parentContainer.append($imageSlice);
   }
 
+  play();
+
+  function play() {
+    console.log('playing');
+  }
+
 });
