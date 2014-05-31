@@ -1,7 +1,7 @@
 "use strict";
 
 $(function(){
-
+  var DEFAULT_FPS = 20;
 
   var $parentContainer = $('.container');
   var imageNamePrefix = 'img/frames/frame_0';
@@ -9,6 +9,7 @@ $(function(){
   var numberOfSlides = 68;
   var slideWidth = $parentContainer.width() / numberOfSlides;
   var slideHeight = $parentContainer.height();
+  var intervalVar;
 
   for( ; i < numberOfSlides; i++) {
 
@@ -30,8 +31,11 @@ $(function(){
 
   play();
 
-  function play() {
+  function play(framesPerSecond) {
     console.log('playing');
+    framesPerSecond = framesPerSecond || DEFAULT_FPS;
+    var intervalMs = 1000 / framesPerSecond;
+
     var index = 0;
     var changeBgFunc = function() {
       changeBackgroundImage(index++);
@@ -39,7 +43,12 @@ $(function(){
         index = 0;
     };
 
-    var intervalVar = setInterval(changeBgFunc, 32);
+    intervalVar = setInterval(changeBgFunc, 32);
+  }
+
+  function stop() {
+    console.log('stopped playing');
+    window.clearInterval(intervalVar);
   }
 
   /*
