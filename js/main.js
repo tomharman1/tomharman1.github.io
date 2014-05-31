@@ -14,7 +14,7 @@ $(function(){
 
     // preload image
     var img = new Image();
-    img.src = getImageSrc(imageNamePrefix, i);
+    img.src = getImageSrc(i);
 
     var bgImgCSS = ["url('", img.src, "')"].join('');
     var $imageSlice = $('<div class="img-slice"></div>');
