@@ -22,9 +22,9 @@ Dancing.Kenny = (function($){
       $imageSlice.css('width', slideWidth)
                  .css('height', slideHeight)
                  .on('mouseenter',
-                      (function(imgSrc){ // closure so we lock in img
-                        return function(){ changeBackgroundImage(imgSrc) }
-                      })(makeBackgroundImgCSSProp(img.src))
+                      (function(index){ // closure so we lock in img
+                        return function(){ changeBackgroundImage(index) }
+                      })(i)
                     );
       $parentContainer.append($imageSlice);
     }
@@ -60,11 +60,7 @@ Dancing.Kenny = (function($){
    */
   var changeBackgroundImage = function(index) {
     var imgSrc = getImageSrc(index);
-    $parentContainer.css('background-image', makeBackgroundImgCSSProp(imgSrc));
-  }
-
-  var makeBackgroundImgCSSProp = function(imgSrc) {
-    return ["url('", imgSrc, "')"].join('');
+    $parentContainer.css('background-image', ["url('", imgSrc, "')"].join(''));
   }
 
   return { // public functions
