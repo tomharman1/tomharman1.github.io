@@ -32,6 +32,8 @@ Dancing.Kenny = (function($){
 
   var play = function(framesPerSecond) {
     console.log('playing');
+    stopPlaying();
+
     framesPerSecond = framesPerSecond || DEFAULT_FPS;
     var intervalMs = 1000 / framesPerSecond;
     var index = 0;
@@ -45,7 +47,9 @@ Dancing.Kenny = (function($){
 
   var stopPlaying = function() {
     console.log('stopped playing');
-    window.clearInterval(intervalVar);
+    if(intervalVar) { // exists
+      window.clearInterval(intervalVar);
+    }
   }
 
   /*
