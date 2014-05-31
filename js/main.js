@@ -1,6 +1,6 @@
 "use strict";
 
-var Dancing.Kenny = (function($){
+Dancing.Kenny = (function($){
   var DEFAULT_FPS = 20;
 
   var $parentContainer = $('.container');
