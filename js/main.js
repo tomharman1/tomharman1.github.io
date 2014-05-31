@@ -1,5 +1,5 @@
 "use strict";
-
+var Dancing = {};
 Dancing.Kenny = (function($){
   var DEFAULT_FPS = 20;
 
