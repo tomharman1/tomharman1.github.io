@@ -29,8 +29,6 @@ $(function(){
     $parentContainer.append($imageSlice);
   }
 
-  play();
-
   function play(framesPerSecond) {
     console.log('playing');
     framesPerSecond = framesPerSecond || DEFAULT_FPS;
