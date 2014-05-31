@@ -12,8 +12,9 @@ $(function(){
 
   for( ; i < numberOfSlides; i++) {
 
+    // preload image
     var img = new Image();
-    img.src = [imageNamePrefix, ((i < 10) ? '0'+i : i), '.gif'].join('');
+    img.src = getImageSrc(imageNamePrefix, i);
 
     var bgImgCSS = ["url('", img.src, "')"].join('');
     var $imageSlice = $('<div class="img-slice"></div>');
@@ -21,7 +22,7 @@ $(function(){
                .css('height', slideHeight)
                .on('mouseenter',
                     (function(imgSrc){ // closure so we lock in img
-                      return function(){ $parentContainer.css('background-image', imgSrc); }
+                      return function(){ changeBackgroundImage(imgSrc) }
                     })(bgImgCSS)
                   );
 
@@ -32,6 +33,29 @@ $(function(){
 
   function play() {
     console.log('playing');
+    var index = 0;
+    var changeBgFunc = function() {
+      changeBackgroundImage(index++);
+      if(index == numberOfSlides-1)
+        index = 0;
+    };
+
+    var intervalVar = setInterval(changeBgFunc, 32);
+  }
+
+  /*
+   * Generates image source with specifed index
+   */
+  function getImageSrc(imgIndex) {
+    return [imageNamePrefix, ((imgIndex < 10) ? '0'+imgIndex : imgIndex), '.gif'].join('');
+  }
+
+  /**
+   * Switches background image of $parentContainer to image at specified index
+   */
+  function changeBackgroundImage(index) {
+    var imgSrc = getImageSrc(index);
+    $parentContainer.css('background-image', imgSrc);
   }
 
 });
