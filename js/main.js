@@ -33,7 +33,6 @@ Dancing.Kenny = (function($){
   var play = function(framesPerSecond) {
     console.log('playing');
     framesPerSecond = framesPerSecond || DEFAULT_FPS;
-
     var intervalMs = 1000 / framesPerSecond;
     var index = 0;
     var changeBgFunc = function() {
@@ -41,7 +40,7 @@ Dancing.Kenny = (function($){
       if(index == numberOfSlides-1) { index = 0; }
     };
 
-    intervalVar = setInterval(changeBgFunc, 32);
+    intervalVar = setInterval(changeBgFunc, intervalMs);
   }
 
   var stopPlaying = function() {
