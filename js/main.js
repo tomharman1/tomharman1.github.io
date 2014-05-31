@@ -46,7 +46,7 @@ $(function(){
     intervalVar = setInterval(changeBgFunc, 32);
   }
 
-  function stop() {
+  function stopPlaying() {
     console.log('stopped playing');
     window.clearInterval(intervalVar);
   }
