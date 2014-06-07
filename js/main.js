@@ -3,7 +3,7 @@ var Dancing = {};
 Dancing.Kenny = (function($){
   var DEFAULT_FPS = 20;
 
-  var $slideContainer = $('.container');
+  var $slideContainer = $('.screen');
   var imageNamePrefix = 'img/frames/frame_0';
   var i = 0;
   var numberOfSlides = 68;
