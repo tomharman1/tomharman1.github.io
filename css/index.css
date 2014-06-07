@@ -1,14 +1,24 @@
-.container {
-  background-image: url('../img/frames/frame_000.gif');
+.phone-skin {
+  background-image: url('../img/iphone5c_skin.png');
   background-size: cover;
-  width: 292px;
-  height: 520px;
+  width: 407px;
+  height: 834px;
 
   /* center on y and x-axis*/
   position: absolute;
-  margin: -260px -146px;
+  margin: -417px -203.5px;
   top: 50%;
   left: 50%;
+}
+
+.screen {
+  background-image: url('../img/frames/frame_000.gif');
+  background-size: cover;
+  width: 326px;
+  height: 590px;
+  position: absolute;
+  top: 100px;
+  left: 44px;
 }
 
 .img-slice {

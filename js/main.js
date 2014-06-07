@@ -3,12 +3,12 @@ var Dancing = {};
 Dancing.Kenny = (function($){
   var DEFAULT_FPS = 20;
 
-  var $parentContainer = $('.container');
+  var $slideContainer = $('.container');
   var imageNamePrefix = 'img/frames/frame_0';
   var i = 0;
   var numberOfSlides = 68;
-  var slideWidth = $parentContainer.width() / numberOfSlides;
-  var slideHeight = $parentContainer.height();
+  var slideWidth = $slideContainer.width() / numberOfSlides;
+  var slideHeight = $slideContainer.height();
   var intervalVar;
 
   $(function(){ // on DOM ready: pre-load images and add change on hover
@@ -26,7 +26,7 @@ Dancing.Kenny = (function($){
                         return function(){ changeBackgroundImage(index) }
                       })(i)
                     );
-      $parentContainer.append($imageSlice);
+      $slideContainer.append($imageSlice);
     }
   });
 
@@ -60,11 +60,11 @@ Dancing.Kenny = (function($){
   }
 
   /**
-   * Switches background image of $parentContainer to image at specified index
+   * Switches background image of $slideContainer to image at specified index
    */
   var changeBackgroundImage = function(index) {
     var imgSrc = getImageSrc(index);
-    $parentContainer.css('background-image', ["url('", imgSrc, "')"].join(''));
+    $slideContainer.css('background-image', ["url('", imgSrc, "')"].join(''));
   }
 
   return { // public functions
