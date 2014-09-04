@@ -13,6 +13,7 @@ Dancing.Kenny = (function($){
 
   $(function(){ // on DOM ready: pre-load images and add change on hover
 
+    setupButtons();
     for( ; i < numberOfSlides; i++) {
       // preload image
       var img = new Image();
@@ -29,6 +30,28 @@ Dancing.Kenny = (function($){
       $slideContainer.append($imageSlice);
     }
   });
+
+  var setupButtons = function() {
+    var $buttons = {
+      groove: $('#groove-btn'), glide: $('#glide-btn'),
+      country: $('#country-btn'), booty: $('#booty-btn')
+    };
+
+    function clearSelections() {
+      $('#bottom-nav ul li').removeClass('selected');
+    }
+    function selectBtn(e) {
+      var $button = $(e.currentTarget);
+      clearSelections();
+      $button.addClass('selected');
+    }
+
+    for( var btnKey in $buttons ) {
+      var $btn = $buttons[btnKey];
+      $btn.off('click')
+          .on('click', selectBtn);
+    }
+  }
 
   var play = function(framesPerSecond) {
     console.log('playing');

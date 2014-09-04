@@ -42,16 +42,32 @@
   background-image: url('../img/icons/groove.png');
 }
 
+.groove.selected {
+  background-image: url('../img/icons/groove-pressed.png');
+}
+
 .glide {
   background-image: url('../img/icons/glide.png');
+}
+
+.glide.selected {
+  background-image: url('../img/icons/glide-pressed.png');
 }
 
 .country {
   background-image: url('../img/icons/country.png');
 }
 
+.country.selected {
+  background-image: url('../img/icons/country-pressed.png');
+}
+
 .booty {
   background-image: url('../img/icons/booty.png');
+}
+
+.booty.selected {
+  background-image: url('../img/icons/booty-pressed.png');
 }
 
 /* Glass styles */
