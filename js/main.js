@@ -5,6 +5,7 @@ Dancing.Kenny = (function($){
 
   var $slideContainer = $('.screen');
   var imageNamePrefix = 'img/frames/frame_0';
+  var iconsLoc = 'img/icons/';
   var i = 0;
   var numberOfSlides = 68;
   var slideWidth = $slideContainer.width() / numberOfSlides;
@@ -13,7 +14,6 @@ Dancing.Kenny = (function($){
 
   $(function(){ // on DOM ready: pre-load images and add change on hover
 
-    setupButtons();
     for( ; i < numberOfSlides; i++) {
       // preload image
       var img = new Image();
@@ -29,14 +29,11 @@ Dancing.Kenny = (function($){
                     );
       $slideContainer.append($imageSlice);
     }
+
+    setupButtons();
   });
 
   var setupButtons = function() {
-    var $buttons = {
-      groove: $('#groove-btn'), glide: $('#glide-btn'),
-      country: $('#country-btn'), booty: $('#booty-btn')
-    };
-
     function clearSelections() {
       $('#bottom-nav ul li').removeClass('selected');
     }
@@ -46,8 +43,39 @@ Dancing.Kenny = (function($){
       $button.addClass('selected');
     }
 
-    for( var btnKey in $buttons ) {
-      var $btn = $buttons[btnKey];
+    var buttons = {
+      groove: {
+        $: $('#groove-btn'),
+        img: 'groove.png',
+        selectedImg: 'groove-pressed.png'
+      },
+      glide: {
+        $: $('#glide-btn'),
+        img: 'glide.png',
+        selectedImg: 'glide-pressed.png'
+      },
+      country: {
+        $: $('#country-btn'),
+        img: 'country.png',
+        selectedImg: 'country-pressed.png'
+      },
+      booty: {
+        $: $('#booty-btn'),
+        img: 'booty.png',
+        selectedImg: 'booty-pressed.png'
+      }
+    };
+
+    for( var btnKey in buttons ) {
+      var button = buttons[btnKey];
+      var $btn = button['$'];
+      var img = new Image();
+      var selectedImg = new Image();
+
+      // prefetch button images
+      img.src = [iconsLoc, button.img].join('');
+      selectedImg.src = [iconsLoc, button.selectedImg].join('');
+
       $btn.off('click')
           .on('click', selectBtn);
     }
