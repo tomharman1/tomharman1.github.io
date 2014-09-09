@@ -39,8 +39,13 @@ Dancing.Kenny = (function($){
     }
     function selectBtn(e) {
       var $button = $(e.currentTarget);
+      var audioId = $button.data('audio-track-id');
+      var $audio = $('#' + audioId);
+
       clearSelections();
       $button.addClass('selected');
+
+      $audio[0].play();
     }
 
     var buttons = {
