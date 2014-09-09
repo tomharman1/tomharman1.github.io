@@ -49,7 +49,7 @@ Dancing.Kenny = (function($){
 
     stopPlayingAllTracks();
     playTrack($btn);
-    window.setTimeout(function(){ playVideo(framesPerSecond) }, 1500);
+    window.setTimeout(function(){ playVideo(framesPerSecond) }, 150);
   }
 
   var stopPlayingAllTracks = function() {
