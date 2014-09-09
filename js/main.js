@@ -146,7 +146,7 @@ Dancing.Kenny = (function($){
   }
 
   return { // public functions
-    play: play,
+    play: playTrack,
     stopPlaying: stopPlaying
   }
 
