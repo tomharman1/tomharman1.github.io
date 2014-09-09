@@ -33,6 +33,15 @@ Dancing.Kenny = (function($){
     setupButtons();
   });
 
+  var stopPlayingAllTracks = function() {
+    var $audioElements = $('audio');
+    var i = 0;
+
+    for( ; i < $audioElements.length; i++) {
+      $audioElements[i].pause();
+    }
+  }
+
   var setupButtons = function() {
     function clearSelections() {
       $('#bottom-nav ul li').removeClass('selected');
@@ -46,6 +55,7 @@ Dancing.Kenny = (function($){
       clearSelections();
       $button.addClass('selected');
 
+      stopPlayingAllTracks();
       play(framesPerSecond);
       $audio[0].play();
     }
