@@ -33,6 +33,18 @@ Dancing.Kenny = (function($){
     setupButtons();
   });
 
+  $(window).load(function(){ // play selected buttons audio and vid
+    var $selectedBtn = $('.selected');
+    playTrack($selectedBtn);
+    playVideo(framesPerSecond)
+  });
+
+  var playTrack = function($btn) {
+    var audioId = $btn.data('audio-track-id');
+    var $audio = $('#' + audioId);
+    $audio[0].play();
+  }
+
   var stopPlayingAllTracks = function() {
     var $audioElements = $('audio');
     var i = 0;
@@ -48,16 +60,14 @@ Dancing.Kenny = (function($){
     }
     function selectBtn(e) {
       var $button = $(e.currentTarget);
-      var audioId = $button.data('audio-track-id');
-      var $audio = $('#' + audioId);
       var framesPerSecond = $button.data('fps');
 
       clearSelections();
       $button.addClass('selected');
 
       stopPlayingAllTracks();
-      $audio[0].play();
-      window.setTimeout(function(){ play(framesPerSecond) }, 1500);
+      playTrack($button);
+      window.setTimeout(function(){ playVideo(framesPerSecond) }, 1500);
     }
 
     var buttons = {
@@ -98,7 +108,7 @@ Dancing.Kenny = (function($){
     }
   }
 
-  var play = function(framesPerSecond) {
+  var playVideo = function(framesPerSecond) {
     console.log('playing');
     stopPlaying();
 
