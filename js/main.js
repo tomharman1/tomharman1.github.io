@@ -56,8 +56,8 @@ Dancing.Kenny = (function($){
       $button.addClass('selected');
 
       stopPlayingAllTracks();
-      play(framesPerSecond);
       $audio[0].play();
+      window.setTimeout(function(){ play(framesPerSecond) }, 1500);
     }
 
     var buttons = {
