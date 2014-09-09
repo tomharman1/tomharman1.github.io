@@ -41,10 +41,12 @@ Dancing.Kenny = (function($){
       var $button = $(e.currentTarget);
       var audioId = $button.data('audio-track-id');
       var $audio = $('#' + audioId);
+      var framesPerSecond = $button.data('fps');
 
       clearSelections();
       $button.addClass('selected');
 
+      play(framesPerSecond);
       $audio[0].play();
     }
 
