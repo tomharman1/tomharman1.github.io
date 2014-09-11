@@ -46,10 +46,15 @@ Dancing.Kenny = (function($){
 
   var play = function($btn) {
     var framesPerSecond = $btn.data('fps');
+    var videoDelayMs = 150;
+
+    if($btn[0].id === 'booty-btn') {
+      videoDelayMs = 16000;
+    }
 
     stopPlayingAllTracks();
     playTrack($btn);
-    window.setTimeout(function(){ playVideo(framesPerSecond) }, 150);
+    window.setTimeout(function(){ playVideo(framesPerSecond) }, videoDelayMs);
   }
 
   var stopPlayingAllTracks = function() {
